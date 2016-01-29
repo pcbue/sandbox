@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>bom</artifactId>
+    <packaging>pom</packaging>
 
     <dependencyManagement>
         <dependencies>
