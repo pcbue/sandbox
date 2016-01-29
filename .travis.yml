@@ -2,7 +2,6 @@ sudo: false
 language: java
 
 jdk:
-  - oraclejdk7
   - oraclejdk8
 
 install:
@@ -10,5 +9,6 @@ install:
   - tar xfz apache-maven-3.3.9-bin.tar.gz
   - export M2_HOME=$PWD/apache-maven-3.3.9
   - export PATH=$M2_HOME/bin:$PATH
+  - mvn -v
 
 script: mvn -B -T 2 clean install
