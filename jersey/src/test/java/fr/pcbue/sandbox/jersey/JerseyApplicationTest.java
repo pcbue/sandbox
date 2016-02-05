@@ -8,6 +8,7 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.TestRestTemplate;
 import org.springframework.boot.test.WebIntegrationTest;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.web.client.RestTemplate;
 
@@ -23,8 +24,9 @@ public class JerseyApplicationTest {
 
     @Test
     public void contextLoads() throws Exception {
-        Assertions.assertThat(
-            template.getForEntity("http://localhost:" + port + "/hello", String.class).getStatusCode()
-        ).isEqualTo(HttpStatus.OK);
+        ResponseEntity<String> responseEntity = template.getForEntity("http://localhost:" + port + "/hello", String.class);
+
+        Assertions.assertThat(responseEntity.getBody()).isEqualTo("{\"field2\":\"World\"}");
+        Assertions.assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
     }
 }

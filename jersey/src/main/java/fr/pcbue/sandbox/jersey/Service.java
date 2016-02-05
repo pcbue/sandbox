@@ -9,7 +9,7 @@ public class Service {
     @Value("${message:World}")
     private String msg;
 
-    public String message() {
-        return msg;
+    public Data message() {
+        return new Data(msg, msg);
     }
 }

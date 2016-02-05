@@ -18,7 +18,7 @@ public class EndPoint {
     }
 
     @GET
-    public String message() {
+    public Data message() {
         return service.message();
     }
 }
